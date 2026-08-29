@@ -29,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
       },
       include: {
+        brand: true,
         variants: {
           include: {
             offers: {
@@ -81,6 +82,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       sitemapUrls.push({
         url: `${BASE_URL}/marca/${brand.slug}`,
         lastModified: new Date(),
+      });
+    });
+
+    // Add programmatic SEO routes (Brand + Model & Brand + Model + Size)
+    activeProducts.forEach((product) => {
+      // 1. Brand + Model
+      sitemapUrls.push({
+        url: `${BASE_URL}/marca/${product.brand?.slug || 'unknown'}/${product.slug}`,
+        lastModified: product.updatedAt,
+      });
+
+      // 2. Brand + Model + Size
+      const sizes = new Set<string>();
+      product.variants.forEach(v => {
+        if (v.sizeValue) sizes.add(v.sizeValue);
+      });
+
+      sizes.forEach(size => {
+        sitemapUrls.push({
+          url: `${BASE_URL}/marca/${product.brand?.slug || 'unknown'}/${product.slug}/talla-${size}`,
+          lastModified: product.updatedAt,
+        });
       });
     });
 
