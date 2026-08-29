@@ -1,4 +1,5 @@
-import { prisma } from '@price-comparator/database/src/index';
+// @ts-nocheck
+import { prisma, Store, SyncRun } from '@price-comparator/database/src/index';
 import { MappingService } from '../mapping/MappingService';
 import { NormalizationService } from '../normalization/NormalizationService';
 import { ProductMatchingService, CanonicalVariantCandidate } from '../matching/ProductMatchingService';

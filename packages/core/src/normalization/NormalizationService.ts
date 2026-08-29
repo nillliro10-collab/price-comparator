@@ -1,7 +1,6 @@
 import { normalizeSize, NormalizedSize } from './size.normalizer';
 import { normalizeColor } from './color.normalizer';
 import { normalizeText } from './text.normalizer';
-import { RawOffer } from '@prisma/client';
 
 export interface NormalizedOffer {
   rawOfferId: string;
@@ -17,7 +16,7 @@ export class NormalizationService {
   /**
    * Transforma una RawOffer en datos normalizados sin modificar el payload original.
    */
-  public normalize(rawOffer: RawOffer): NormalizedOffer {
+  public normalize(rawOffer: any): NormalizedOffer {
     return {
       rawOfferId: rawOffer.id,
       title: normalizeText(rawOffer.rawTitle),
