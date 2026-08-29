@@ -7,11 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "npm run db:generate && turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "db:generate": "npm run generate --workspace=@price-comparator/database",
-    "postinstall": "npm run db:generate"
+    "db:generate": "npm run generate --workspace=@price-comparator/database"
   },
   "devDependencies": {
     "turbo": "latest"
