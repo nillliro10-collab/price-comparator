@@ -2,6 +2,7 @@
   "name": "@price-comparator/database",
   "version": "1.0.0",
   "private": true,
+  "main": "src/index.ts",
   "scripts": {
     "validate": "prisma validate",
     "format": "prisma format",
