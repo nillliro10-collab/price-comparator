@@ -4,9 +4,10 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "validate": "npx prisma validate",
-    "format": "npx prisma format",
-    "generate": "npx prisma generate"
+    "validate": "node ./node_modules/prisma/build/index.js validate",
+    "format": "node ./node_modules/prisma/build/index.js format",
+    "generate": "node ./node_modules/prisma/build/index.js generate",
+    "build": "node ./node_modules/prisma/build/index.js generate"
   },
   "devDependencies": {
     "prisma": "^5.14.0"
