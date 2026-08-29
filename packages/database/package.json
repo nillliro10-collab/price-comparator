@@ -6,7 +6,7 @@
   "scripts": {
     "validate": "npx prisma validate",
     "format": "npx prisma format",
-    "generate": "npx prisma generate", "build": "npx prisma generate"
+    "generate": "npx prisma generate"
   },
   "devDependencies": {
     "prisma": "^5.14.0"
