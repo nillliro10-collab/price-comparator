@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run db:generate --prefix=../../ && next build",
+    "build": "npm run db:generate --prefix=../../ && node -e \"require('fs').copyFileSync('../../packages/database/prisma/dev.db', './public/dev.db')\" && next build",
     "start": "next start",
     "lint": "eslint"
   },

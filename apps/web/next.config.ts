@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  outputFileTracingIncludes: {
+    '/**': ['../../packages/database/prisma/dev.db'],
+  },
 };
 
 export default withNextIntl(nextConfig);
