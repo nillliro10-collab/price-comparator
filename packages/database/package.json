@@ -6,8 +6,7 @@
   "scripts": {
     "validate": "prisma validate",
     "format": "prisma format",
-    "generate": "prisma generate",
-    "build": "prisma generate"
+    "generate": "prisma generate"
   },
   "devDependencies": {
     "prisma": "^5.22.0"
