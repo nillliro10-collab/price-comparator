@@ -8,12 +8,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "@price-comparator/database": "*"
+    "@price-comparator/database": "*",
+    "papaparse": "^5.7.0",
+    "zod": "^4.5.2"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
+    "@types/jest": "^29.5.12",
+    "@types/papaparse": "^5.5.2",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
-    "@types/jest": "^29.5.12"
+    "typescript": "^5.4.5"
   }
 }
