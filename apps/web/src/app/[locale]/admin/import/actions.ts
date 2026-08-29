@@ -1,9 +1,12 @@
 "use server";
 
 import { parseCsv } from "@price-comparator/core/src/importer/parseCsv";
-import { prisma } from "@price-comparator/database/src/index";
+import { importSingleItem } from "@price-comparator/core/src/importer/importSingleItem";
 
 export async function importCsvAction(csvText: string, storeId: string) {
+  const store = await prisma.store.findUnique({ where: { id: storeId } });
+  if (!store) throw new Error("Tienda no encontrada");
+
   const { valid, failed } = parseCsv(csvText);
 
   let success = 0;
@@ -11,89 +14,7 @@ export async function importCsvAction(csvText: string, storeId: string) {
 
   for (const item of valid) {
     try {
-      // 1. Brand
-      const brand = await prisma.brand.upsert({
-        where: { name: item.brand },
-        update: {},
-        create: { name: item.brand, slug: item.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-') },
-      });
-
-      // 2. Product
-      // En nuestro schema Product se identifica por slug, no externalId
-      const productSlug = item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-      const product = await prisma.product.upsert({
-        where: { slug: productSlug },
-        update: {
-          name: item.name,
-          model: item.name,
-          brandId: brand.id,
-          imageUrl: item.imageUrl,
-        },
-        create: {
-          name: item.name,
-          model: item.name,
-          slug: productSlug,
-          brandId: brand.id,
-          imageUrl: item.imageUrl,
-        },
-      });
-
-      // 3. Variant
-      // Buscamos si ya existe, sino creamos. 
-      // El unique en schema es [productId, sizeValue, sizeSystem, colorNormalized]
-      let variant = await prisma.variant.findFirst({
-        where: {
-          productId: product.id,
-          sizeValue: item.size,
-          colorRaw: item.color || "Unknown",
-        }
-      });
-      
-      if (!variant) {
-        variant = await prisma.variant.create({
-          data: {
-            productId: product.id,
-            sizeValue: item.size,
-            sizeSystem: "EU",
-            colorRaw: item.color || "Unknown",
-            colorNormalized: item.color || "UNKNOWN",
-            sku: item.sku,
-            gtin: item.ean
-          }
-        });
-      }
-
-      // 4. Offer
-      await prisma.offer.upsert({
-        where: {
-          storeId_variantId: {
-            storeId,
-            variantId: variant.id,
-          },
-        },
-        update: {
-          externalProductId: item.externalId,
-          priceBase: item.price,
-          priceTotal: item.price + (item.shipping || 0),
-          priceShipping: item.shipping,
-          url: item.productUrl,
-          status: item.stock ? "ACTIVE" : "OUT_OF_STOCK",
-          stockStatus: item.stock ? "IN_STOCK" : "OUT_OF_STOCK",
-          lastSeenAt: new Date()
-        },
-        create: {
-          storeId,
-          variantId: variant.id,
-          externalProductId: item.externalId,
-          url: item.productUrl,
-          priceBase: item.price,
-          priceTotal: item.price + (item.shipping || 0),
-          priceShipping: item.shipping,
-          status: item.stock ? "ACTIVE" : "OUT_OF_STOCK",
-          stockStatus: item.stock ? "IN_STOCK" : "OUT_OF_STOCK",
-        },
-      });
-
+      await importSingleItem(item, store);
       success++;
     } catch (e: any) {
       dbErrors.push({ item, error: String(e.message || e) });
@@ -105,4 +26,14 @@ export async function importCsvAction(csvText: string, storeId: string) {
     success,
     failed: [...failed, ...dbErrors],
   };
+}
+
+export async function forceAutoImportAction(storeId: string) {
+  const store = await prisma.store.findUnique({ where: { id: storeId } });
+  if (!store) throw new Error("Store no encontrada");
+  if (!store.feedUrl) throw new Error("La tienda no tiene Feed URL configurada");
+
+  const { runAutoImport } = await import("@price-comparator/core/src/importer/autoImport");
+  const result = await runAutoImport(store);
+  return result;
 }

@@ -77,6 +77,7 @@ model Store {
   name                 String
   slug                 String      @unique
   websiteUrl           String
+  feedUrl              String?
   shopScore            Int         @default(80)
   logoUrl              String?
   isAffiliate          Boolean     @default(true)

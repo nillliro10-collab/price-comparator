@@ -7,8 +7,8 @@ export function parseCsv(text: string) {
     skipEmptyLines: true,
   });
 
-  const valid = [];
-  const failed = [];
+  const valid: any[] = [];
+  const failed: any[] = [];
 
   for (const row of data as any[]) {
     const result = CsvRowSchema.safeParse(row);

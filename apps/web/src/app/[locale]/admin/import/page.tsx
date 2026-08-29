@@ -51,10 +51,16 @@ export default function ImportPage() {
             <option key={s.id} value={s.id}>{s.name}</option>
           ))}
         </select>
+        {stores.find(s => s.id === storeId)?.feedUrl && (
+          <div className="mt-2 text-sm text-slate-600 bg-slate-50 p-2 border border-slate-200 rounded">
+            <strong>Feed Configurado:</strong> {stores.find(s => s.id === storeId)?.feedUrl}<br/>
+            <strong>Última Sync:</strong> {stores.find(s => s.id === storeId)?.lastSuccessfulSyncAt ? new Date(stores.find(s => s.id === storeId)?.lastSuccessfulSyncAt).toLocaleString() : 'Nunca'}
+          </div>
+        )}
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium text-slate-700 mb-1">Pega el contenido del CSV aquí</label>
+        <label className="block text-sm font-medium text-slate-700 mb-1">Pega el contenido del CSV aquí (Modo Manual)</label>
         <p className="text-xs text-slate-500 mb-2">Columnas requeridas: externalId, name, brand, price, shipping, productUrl, size</p>
         <textarea 
           className="w-full border border-slate-300 rounded p-2 font-mono text-sm h-64"
@@ -64,13 +70,33 @@ export default function ImportPage() {
         />
       </div>
 
-      <button 
-        onClick={handleImport}
-        disabled={loading}
-        className="bg-black text-white px-6 py-2 rounded font-medium disabled:opacity-50"
-      >
-        {loading ? "Importando..." : "IMPORTAR"}
-      </button>
+      <div className="flex gap-4">
+        <button 
+          onClick={handleImport}
+          disabled={loading}
+          className="bg-black text-white px-6 py-2 rounded font-medium disabled:opacity-50"
+        >
+          {loading ? "Importando..." : "IMPORTAR MANUAL"}
+        </button>
+
+        {stores.find(s => s.id === storeId)?.feedUrl && (
+          <button 
+            onClick={async () => {
+              setLoading(true);
+              try {
+                const { forceAutoImportAction } = await import('./actions');
+                const res = await forceAutoImportAction(storeId);
+                setResult(res);
+              } catch(e: any) { alert(e.message); }
+              setLoading(false);
+            }}
+            disabled={loading}
+            className="bg-emerald-600 text-white px-6 py-2 rounded font-medium disabled:opacity-50"
+          >
+            {loading ? "Sincronizando..." : "FORZAR IMPORT AUTOMÁTICO (AWIN)"}
+          </button>
+        )}
+      </div>
 
       {result && (
         <div className="mt-8 p-6 bg-slate-50 rounded border border-slate-200">
