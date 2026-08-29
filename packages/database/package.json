@@ -4,13 +4,13 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "validate": "node ./node_modules/prisma/build/index.js validate",
-    "format": "node ./node_modules/prisma/build/index.js format",
-    "generate": "node ./node_modules/prisma/build/index.js generate",
-    "build": "node ./node_modules/prisma/build/index.js generate"
+    "validate": "prisma validate",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "build": "prisma generate"
   },
   "devDependencies": {
-    "prisma": "^5.14.0"
+    "prisma": "^5.22.0"
   },
   "dependencies": {
     "@prisma/client": "^5.14.0",
