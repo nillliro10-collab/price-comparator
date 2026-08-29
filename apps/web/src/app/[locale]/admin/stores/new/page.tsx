@@ -8,6 +8,7 @@ export default function NewStorePage({ searchParams }: { searchParams: { error?:
     
     const name = formData.get('name') as string;
     const websiteUrl = formData.get('websiteUrl') as string;
+    const feedUrl = formData.get('feedUrl') as string;
     const affiliateNetwork = formData.get('affiliateNetwork') as string;
     const deeplinkTemplate = formData.get('deeplinkTemplate') as string;
     const programId = formData.get('programId') as string;
@@ -33,6 +34,7 @@ export default function NewStorePage({ searchParams }: { searchParams: { error?:
         name,
         slug,
         websiteUrl,
+        feedUrl: feedUrl || null,
         affiliateNetwork: affiliateNetwork === 'Ninguna' ? null : affiliateNetwork,
         deeplinkTemplate: deeplinkTemplate || null,
         programId,
@@ -68,6 +70,10 @@ export default function NewStorePage({ searchParams }: { searchParams: { error?:
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2">Web (URL) *</label>
             <input name="websiteUrl" type="url" required placeholder="https://" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          </div>
+          <div className="col-span-2">
+            <label className="block text-sm font-bold text-gray-700 mb-2">Feed URL (CSV de AWIN) - Para importación automática</label>
+            <input name="feedUrl" type="url" placeholder="https://awin.com/..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
           </div>
         </div>
 
