@@ -1,0 +1,270 @@
+[
+  {
+    "id": "prod-zap-01",
+    "name": "Nike Air Force 1 '07",
+    "brand": "Nike",
+    "category": "ZAPATILLAS",
+    "subcategory": "Sneakers casual",
+    "target_audience": "Adulto Unisex",
+    "color": "Blanco / White",
+    "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "EU 40",
+        "stores": [
+          { "storeName": "Zalando", "price": 119.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zalando/af1-40" },
+          { "storeName": "Foot Locker", "price": 119.99, "shipping": 3.99, "inStock": true, "affiliateUrl": "https://example.com/aff/footlocker/af1-40" },
+          { "storeName": "Nike Oficial", "price": 129.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/nike/af1-40" }
+        ]
+      },
+      {
+        "size": "EU 42.5",
+        "stores": [
+          { "storeName": "JD Sports", "price": 114.95, "shipping": 4.00, "inStock": true, "affiliateUrl": "https://example.com/aff/jdsports/af1-425" },
+          { "storeName": "Zalando", "price": 119.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zalando/af1-425" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-zap-02",
+    "name": "Vans Old Skool V Infantil (Velcro)",
+    "brand": "Vans",
+    "category": "ZAPATILLAS",
+    "subcategory": "Calzado Infantil",
+    "target_audience": "Niño / Niña",
+    "color": "Negro / Blanco",
+    "imageUrl": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "EU 28",
+        "stores": [
+          { "storeName": "Zalando", "price": 38.50, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zalando/vans-28" },
+          { "storeName": "El Corte Inglés", "price": 45.00, "shipping": 5.90, "inStock": true, "affiliateUrl": "https://example.com/aff/eci/vans-28" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-rop-01",
+    "name": "Vaquero 501 Original Fit",
+    "brand": "Levi's",
+    "category": "ROPA",
+    "subcategory": "Pantalones largos / Vaqueros",
+    "target_audience": "Adulto Hombre",
+    "color": "Stonewash Blue",
+    "imageUrl": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "W32 / L32",
+        "stores": [
+          { "storeName": "Amazon Moda", "price": 68.90, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/levis-501-w32" },
+          { "storeName": "About You", "price": 79.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/aboutyou/levis-501-w32" },
+          { "storeName": "Levi's Store", "price": 110.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/levis/levis-501-w32" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-rop-02",
+    "name": "Pantalón Corto Dri-FIT Park III",
+    "brand": "Nike",
+    "category": "ROPA",
+    "subcategory": "Pantalones cortos / Shorts",
+    "target_audience": "Adulto Hombre",
+    "color": "Negro",
+    "imageUrl": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "M",
+        "stores": [
+          { "storeName": "Decathlon", "price": 14.99, "shipping": 3.99, "inStock": true, "affiliateUrl": "https://example.com/aff/decathlon/nike-short-m" },
+          { "storeName": "Futbol Emotion", "price": 13.50, "shipping": 4.50, "inStock": true, "affiliateUrl": "https://example.com/aff/futbolemotion/nike-short-m" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-rop-03",
+    "name": "Pack 3 Bodys Algodón Orgánico Bebé",
+    "brand": "Petit Bateau",
+    "category": "ROPA",
+    "subcategory": "Ropa Bebé",
+    "target_audience": "Bebé",
+    "color": "Multicolor Pastel",
+    "imageUrl": "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "6 Meses",
+        "stores": [
+          { "storeName": "El Corte Inglés", "price": 29.90, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/eci/bodys-petit-6m" },
+          { "storeName": "Zalando", "price": 26.50, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zalando/bodys-petit-6m" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-per-01",
+    "name": "Sauvage Eau de Parfum",
+    "brand": "Dior",
+    "category": "PERFUMES",
+    "subcategory": "Fragancias Hombre",
+    "target_audience": "Adulto Hombre",
+    "color": "Transparente / Azul noche",
+    "imageUrl": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "100 ml",
+        "stores": [
+          { "storeName": "Primor", "price": 94.50, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/primor/sauvage-100" },
+          { "storeName": "Druni", "price": 96.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/druni/sauvage-100" },
+          { "storeName": "Sephora", "price": 115.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/sephora/sauvage-100" }
+        ]
+      },
+      {
+        "size": "60 ml",
+        "stores": [
+          { "storeName": "Primor", "price": 69.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/primor/sauvage-60" },
+          { "storeName": "Douglas", "price": 74.50, "shipping": 3.90, "inStock": true, "affiliateUrl": "https://example.com/aff/douglas/sauvage-60" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-elec-01",
+    "name": "Auriculares Cancelación de Ruido WH-1000XM5",
+    "brand": "Sony",
+    "category": "ELECTRÓNICA",
+    "subcategory": "Auriculares y Audio",
+    "target_audience": "Adulto Unisex",
+    "color": "Negro",
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "Talla Única",
+        "stores": [
+          { "storeName": "Amazon", "price": 319.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/sony-xm5" },
+          { "storeName": "MediaMarkt", "price": 329.00, "shipping": 1.99, "inStock": true, "affiliateUrl": "https://example.com/aff/mediamarkt/sony-xm5" },
+          { "storeName": "PcComponentes", "price": 322.50, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/pccomponentes/sony-xm5" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-acc-01",
+    "name": "Mochila Urbana Borealis Classic 29L",
+    "brand": "The North Face",
+    "category": "ACCESORIOS",
+    "subcategory": "Mochilas y Bolsos",
+    "target_audience": "Adulto Unisex",
+    "color": "TNF Black",
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "29 Litros",
+        "stores": [
+          { "storeName": "Tradeinn", "price": 79.99, "shipping": 4.99, "inStock": true, "affiliateUrl": "https://example.com/aff/tradeinn/borealis-black" },
+          { "storeName": "Amazon", "price": 84.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/borealis-black" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-bel-01",
+    "name": "Secador de Pelo Supersonic",
+    "brand": "Dyson",
+    "category": "BELLEZA Y SALUD",
+    "subcategory": "Cuidado Capilar",
+    "target_audience": "Adulto Unisex",
+    "color": "Fucsia / Níquel",
+    "imageUrl": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "Estándar",
+        "stores": [
+          { "storeName": "Dyson Oficial", "price": 399.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/dyson/supersonic" },
+          { "storeName": "El Corte Inglés", "price": 399.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/eci/supersonic" },
+          { "storeName": "MediaMarkt", "price": 389.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/mediamarkt/supersonic" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-dep-01",
+    "name": "Esterilla de Yoga Reversible 5mm",
+    "brand": "Lululemon",
+    "category": "DEPORTES",
+    "subcategory": "Yoga y Pilates",
+    "target_audience": "Adulto Unisex",
+    "color": "Mármol Gris / Negro",
+    "imageUrl": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "5 mm",
+        "stores": [
+          { "storeName": "Lululemon", "price": 78.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/lululemon/mat-5mm" },
+          { "storeName": "Zalando", "price": 74.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zalando/mat-5mm" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-hog-01",
+    "name": "Cafetera de Cápsulas Vertuo Pop",
+    "brand": "Nespresso",
+    "category": "HOGAR",
+    "subcategory": "Pequeño Electrodoméstico Cocina",
+    "target_audience": "Hogar",
+    "color": "Amarillo Mango",
+    "imageUrl": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "Compacta",
+        "stores": [
+          { "storeName": "Amazon", "price": 59.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/vertuo-pop" },
+          { "storeName": "Nespresso Oficial", "price": 99.00, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/nespresso/vertuo-pop" },
+          { "storeName": "MediaMarkt", "price": 64.99, "shipping": 2.99, "inStock": true, "affiliateUrl": "https://example.com/aff/mediamarkt/vertuo-pop" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-mov-01",
+    "name": "Batería Externa PowerCore 737 (24.000mAh, 140W)",
+    "brand": "Anker",
+    "category": "MOVILIDAD Y BATERÍAS",
+    "subcategory": "Baterías y Powerbanks",
+    "target_audience": "Adulto Unisex",
+    "color": "Negro / Pantalla Digital",
+    "imageUrl": "https://images.unsplash.com/photo-1609592426868-b7a4244cf5fa?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "24.000 mAh",
+        "stores": [
+          { "storeName": "Amazon", "price": 109.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/anker-737" },
+          { "storeName": "PcComponentes", "price": 118.50, "shipping": 3.95, "inStock": true, "affiliateUrl": "https://example.com/aff/pccomponentes/anker-737" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-masc-01",
+    "name": "Comedero Automático Wi-Fi Fresh Element Solo",
+    "brand": "Petkit",
+    "category": "MASCOTAS",
+    "subcategory": "Comederos y Fuentes",
+    "target_audience": "Perros y Gatos",
+    "color": "Blanco",
+    "imageUrl": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80",
+    "variants": [
+      {
+        "size": "3 Litros",
+        "stores": [
+          { "storeName": "Zooplus", "price": 62.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/zooplus/petkit-solo" },
+          { "storeName": "Amazon", "price": 69.99, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/amazon/petkit-solo" },
+          { "storeName": "Tiendanimal", "price": 74.95, "shipping": 0.00, "inStock": true, "affiliateUrl": "https://example.com/aff/tiendanimal/petkit-solo" }
+        ]
+      }
+    ]
+  }
+]

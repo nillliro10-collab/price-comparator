@@ -1,0 +1,57 @@
+{
+  "navigation": {
+    "home": "Inici",
+    "categories": "Categories",
+    "searchPlaceholder": "🔍 Què estàs cercant? (Ex: Nike Air Force 1)",
+    "changeLanguage": "Idioma",
+    "favorites": "Favorits"
+  },
+  "hero": {
+    "titleLine1": "Troba on",
+    "titleLine2": "comprar-ho millor.",
+    "subtitle": "Comparem preus, disponibilitat i costos d'enviament per a ajudar-te a trobar la millor oferta del mercat."
+  },
+  "categories": {
+    "zapatillas": "Sabates",
+    "ropa": "Roba",
+    "perfumes": "Perfums",
+    "electronica": "Electrònica",
+    "accesorios": "Accessoris",
+    "belleza-y-salud": "Bellesa i Salut",
+    "deportes": "Esports",
+    "hogar": "Llar",
+    "movilidad-y-baterias": "Mobilitat i Bateries",
+    "mascotas": "Mascotes"
+  },
+  "filters": {
+    "title": "Filtres",
+    "targetAudience": "Públic",
+    "brand": "Marca",
+    "priceRange": "Rang de preu",
+    "size": "Talla / Capacitat",
+    "inStockOnly": "Només en estoc",
+    "clearFilters": "Netejar filtres",
+    "audiences": {
+      "baby": "Nadó",
+      "kids": "Nens / Nenes",
+      "men": "Home",
+      "women": "Dona",
+      "unisex": "Unisex"
+    }
+  },
+  "product": {
+    "selectSize": "Selecciona la teva talla / opció",
+    "storesComparing": "Comparant a {count} botigues",
+    "bestPrice": "Millor oferta",
+    "savings": "Estalvies {amount}€",
+    "basePrice": "Preu producte",
+    "shipping": "Enviament",
+    "freeShipping": "Enviament gratuït",
+    "totalPrice": "Preu final",
+    "inStock": "En estoc",
+    "outOfStock": "Esgotat",
+    "goToStore": "Anar a la botiga",
+    "disclaimer": "Els preus i la disponibilitat poden variar segons la botiga oficial.",
+    "noProducts": "No hi ha productes per a mostrar amb aquests filtres."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "navigation": {
+    "home": "Home",
+    "categories": "Categories",
+    "searchPlaceholder": "🔍 What are you looking for? (e.g. Nike Air Force 1)",
+    "changeLanguage": "Language",
+    "favorites": "Favorites"
+  },
+  "hero": {
+    "titleLine1": "Find where",
+    "titleLine2": "to buy it better.",
+    "subtitle": "We compare prices, availability and shipping costs to help you find the best deal on the market."
+  },
+  "categories": {
+    "zapatillas": "Sneakers",
+    "ropa": "Clothing",
+    "perfumes": "Perfumes",
+    "electronica": "Electronics",
+    "accesorios": "Accessories",
+    "belleza-y-salud": "Beauty & Health",
+    "deportes": "Sports",
+    "hogar": "Home",
+    "movilidad-y-baterias": "Mobility & Batteries",
+    "mascotas": "Pets"
+  },
+  "filters": {
+    "title": "Filters",
+    "targetAudience": "Audience",
+    "brand": "Brand",
+    "priceRange": "Price range",
+    "size": "Size / Option",
+    "inStockOnly": "In stock only",
+    "clearFilters": "Clear filters",
+    "audiences": {
+      "baby": "Baby",
+      "kids": "Kids",
+      "men": "Men",
+      "women": "Women",
+      "unisex": "Unisex"
+    }
+  },
+  "product": {
+    "selectSize": "Select your size / option",
+    "storesComparing": "Comparing across {count} stores",
+    "bestPrice": "Best offer",
+    "savings": "You save {amount}€",
+    "basePrice": "Item price",
+    "shipping": "Shipping",
+    "freeShipping": "Free shipping",
+    "totalPrice": "Total price",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "goToStore": "Go to store",
+    "disclaimer": "Prices and availability are subject to change on the official retailer's website.",
+    "noProducts": "No products to show with these filters."
+  }
+}
