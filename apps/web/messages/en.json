@@ -53,5 +53,9 @@
     "goToStore": "Go to store",
     "disclaimer": "Prices and availability are subject to change on the official retailer's website.",
     "noProducts": "No products to show with these filters."
+  },
+  "banner": {
+    "beta": "We are in Beta phase.",
+    "betaWarning": "The current catalog contains test data. Some prices or links may vary."
   }
 }

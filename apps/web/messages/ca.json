@@ -53,5 +53,9 @@
     "goToStore": "Anar a la botiga",
     "disclaimer": "Els preus i la disponibilitat poden variar segons la botiga oficial.",
     "noProducts": "No hi ha productes per a mostrar amb aquests filtres."
+  },
+  "banner": {
+    "beta": "Estem en fase Beta.",
+    "betaWarning": "El catàleg actual conté dades de prova. Alguns preus o enllaços poden variar."
   }
 }

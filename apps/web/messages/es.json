@@ -53,5 +53,9 @@
     "goToStore": "Ir a la tienda",
     "disclaimer": "Los precios y disponibilidad pueden variar según la tienda oficial.",
     "noProducts": "No hay productos para mostrar con estos filtros."
+  },
+  "banner": {
+    "beta": "Estamos en fase Beta.",
+    "betaWarning": "El catálogo actual contiene datos de prueba. Algunos precios o enlaces pueden variar."
   }
 }
