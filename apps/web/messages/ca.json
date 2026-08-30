@@ -52,7 +52,11 @@
     "outOfStock": "Esgotat",
     "goToStore": "Anar a la botiga",
     "disclaimer": "Els preus i la disponibilitat poden variar segons la botiga oficial.",
-    "noProducts": "No hi ha productes per a mostrar amb aquests filtres."
+    "noProducts": "No hi ha productes per a mostrar amb aquests filtres.",
+    "buyBestPrice": "COMPRAR AL MILLOR PREU",
+    "buy": "COMPRAR",
+    "buyAnyStore": "Pots comprar en qualsevol d'aquestes botigues",
+    "badgeBest": "MILLOR OFERTA"
   },
   "banner": {
     "beta": "Estem en fase Beta.",

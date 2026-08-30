@@ -52,7 +52,11 @@
     "outOfStock": "Agotado",
     "goToStore": "Ir a la tienda",
     "disclaimer": "Los precios y disponibilidad pueden variar según la tienda oficial.",
-    "noProducts": "No hay productos para mostrar con estos filtros."
+    "noProducts": "No hay productos para mostrar con estos filtros.",
+    "buyBestPrice": "COMPRAR AL MEJOR PRECIO",
+    "buy": "COMPRAR",
+    "buyAnyStore": "Puedes comprar en cualquiera de estas tiendas",
+    "badgeBest": "MEJOR OFERTA"
   },
   "banner": {
     "beta": "Estamos en fase Beta.",

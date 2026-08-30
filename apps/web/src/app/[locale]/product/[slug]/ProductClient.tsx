@@ -170,11 +170,15 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
 
         <div className="w-full md:w-1/2 flex flex-col justify-center">
           {product.brand?.slug ? (
-            <Link href={`/${locale}/marca/${product.brand.slug}`} className="text-gray-500 font-semibold tracking-widest uppercase mb-2 text-sm hover:text-black transition-colors block w-max">
-              {product.brand?.name}
+            <Link href={`/${locale}/marca/${product.brand.slug}`} className="mb-4 block w-max">
+               <div className="text-3xl font-black tracking-tighter uppercase text-black">
+                 {product.brand?.name}
+               </div>
             </Link>
           ) : (
-            <p className="text-gray-500 font-semibold tracking-widest uppercase mb-2 text-sm">{product.brand?.name}</p>
+            <div className="text-3xl font-black tracking-tighter uppercase text-black mb-4">
+               {product.brand?.name}
+            </div>
           )}
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">{product.name}</h1>
           <div className="flex items-center gap-2 mb-8">
@@ -189,7 +193,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
               </span>
               {activeVariant?.colorNormalized && (
                 <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
-                  {product.category?.parent?.slug === 'perfumes' || product.category?.slug === 'perfumes' ? 'Versión:' : 'Color:'} <span className="text-black font-bold">{activeVariant.colorNormalized}</span>
+                  Color: <span className="text-black font-bold">{activeVariant.colorNormalized}</span>
                 </span>
               )}
             </div>
@@ -226,7 +230,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
               
               <div className="flex flex-col text-center w-full animate-fade-in">
                 <span className="text-sm font-bold px-4 py-1.5 bg-black text-white rounded-full mb-6 inline-block w-max mx-auto shadow-sm">
-                  🥇 {t('bestPrice').toUpperCase()}
+                  🥇 {t('badgeBest')}
                 </span>
                 
                 <div className="flex flex-col items-center justify-center mb-6">
@@ -267,9 +271,9 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                   href={`/api/outbound?offerId=${bestOffer.id}&sessionId=${clientSessionId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-black text-white px-8 py-5 rounded-full font-black text-xl w-full md:w-2/3 text-center hover:bg-gray-800 transition-all hover:shadow-xl hover:scale-105 active:scale-95 flex justify-center items-center gap-3"
+                  className="bg-emerald-600 text-white px-8 py-5 rounded-full font-black text-xl w-full md:w-2/3 text-center hover:bg-emerald-700 transition-all hover:shadow-xl hover:scale-105 active:scale-95 flex justify-center items-center gap-3"
                 >
-                  {t('goToStore').toUpperCase()}
+                  {t('buyBestPrice')}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -289,16 +293,18 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
         )}
 
         {/* Comparison Table */}
-        <h2 className="text-lg font-bold mb-4 px-2">Comparar todas las tiendas</h2>
+        <div className="text-center mb-4 mt-8">
+           <h2 className="text-2xl font-black mb-1">{t('buyAnyStore')}</h2>
+        </div>
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-12">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm whitespace-nowrap">
               <thead className="bg-gray-50 border-b border-gray-100">
                 <tr>
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs">Tienda</th>
-                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">Precio</th>
-                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">Envío</th>
-                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">Total</th>
+                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('basePrice')}</th>
+                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('shipping')}</th>
+                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('totalPrice')}</th>
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-center">Estado</th>
                   <th className="px-6 py-4"></th>
                 </tr>
@@ -311,30 +317,39 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                     </td>
                   </tr>
                 ) : (
-                  offers.map((offer: any) => (
-                    <tr key={offer.id} className="hover:bg-gray-50/50 transition-colors group">
-                      <td className="px-6 py-4 font-bold text-gray-900">{offer.store.name}</td>
-                      <td className="px-6 py-4 font-medium text-gray-600 text-right">{formatPrice(offer.priceBase)}</td>
-                      <td className="px-6 py-4 font-medium text-gray-500 text-right">
-                        {offer.priceShipping === null ? '—' : formatPrice(offer.priceShipping)}
-                      </td>
-                      <td className="px-6 py-4 font-black text-lg text-right">
-                        {offer.priceTotal ? formatPrice(offer.priceTotal) : formatPrice(offer.priceBase)}
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        {offer.stockStatus === 'OUT_OF_STOCK' ? (
-                          <span className="text-red-600 font-bold bg-red-50 px-2 py-1 rounded-md text-xs">Agotado</span>
-                        ) : (
-                          <span className="text-green-700 font-bold bg-green-50 px-2 py-1 rounded-md text-xs">Disponible</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-right">
-                         <a href={`/api/outbound?offerId=${offer.id}&sessionId=${clientSessionId}`} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-xs transition-colors ${offer.stockStatus === 'OUT_OF_STOCK' ? 'bg-gray-100 text-gray-400 pointer-events-none' : 'bg-gray-100 text-black hover:bg-gray-200'}`}>
-                            Ver oferta
-                         </a>
-                      </td>
-                    </tr>
-                  ))
+                  offers.map((offer: any, index: number) => {
+                    const isBest = index === 0 && offer.stockStatus !== 'OUT_OF_STOCK';
+                    const diff = !isBest && bestOffer && offer.stockStatus !== 'OUT_OF_STOCK' ? (offer.priceTotal ?? offer.priceBase) - (bestOffer.priceTotal ?? bestOffer.priceBase) : 0;
+                    
+                    return (
+                      <tr key={offer.id} className={`transition-colors group ${isBest ? 'bg-emerald-50/30' : 'hover:bg-gray-50/50'}`}>
+                        <td className="px-6 py-4 font-bold text-gray-900 flex items-center gap-2">
+                          {isBest && <span className="text-xl">🥇</span>}
+                          {offer.store.name}
+                        </td>
+                        <td className="px-6 py-4 font-medium text-gray-600 text-right">{formatPrice(offer.priceBase)}</td>
+                        <td className="px-6 py-4 font-medium text-gray-500 text-right">
+                          {offer.priceShipping === null ? '—' : formatPrice(offer.priceShipping)}
+                        </td>
+                        <td className="px-6 py-4 font-black text-lg text-right flex flex-col items-end">
+                          <span>{offer.priceTotal ? formatPrice(offer.priceTotal) : formatPrice(offer.priceBase)}</span>
+                          {diff > 0 && <span className="text-xs font-bold text-red-500 block">+ {formatPrice(diff)}</span>}
+                        </td>
+                        <td className="px-6 py-4 text-center">
+                          {offer.stockStatus === 'OUT_OF_STOCK' ? (
+                            <span className="text-red-600 font-bold bg-red-50 px-2 py-1 rounded-md text-xs">{t('outOfStock')}</span>
+                          ) : (
+                            <span className="text-green-700 font-bold bg-green-50 px-2 py-1 rounded-md text-xs">{t('inStock')}</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                           <a href={`/api/outbound?offerId=${offer.id}&sessionId=${clientSessionId}`} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-black text-sm transition-colors ${offer.stockStatus === 'OUT_OF_STOCK' ? 'bg-gray-100 text-gray-400 pointer-events-none' : (isBest ? 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-md' : 'bg-black text-white hover:bg-gray-800')}`}>
+                              {t('buy')}
+                           </a>
+                        </td>
+                      </tr>
+                    );
+                  })
                 )}
               </tbody>
             </table>
