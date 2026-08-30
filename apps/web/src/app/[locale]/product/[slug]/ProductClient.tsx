@@ -5,10 +5,11 @@ import { useState, useEffect } from 'react';
 import { trackEvent, getSessionId } from '@/lib/tracking';
 import { formatPrice } from '@/lib/utils';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export function ProductClient({ product, sessionId: serverSessionId }: { product: any, sessionId?: string }) {
   const locale = useLocale();
+  const t = useTranslations('product');
   const variants = product.variants || [];
   const sizes = Array.from(new Set(variants.map((v: any) => v?.sizeValue).filter(Boolean))) as string[];
   const sortedSizes = sizes.sort((a, b) => {
@@ -184,9 +185,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
           <div className="mb-6">
             <div className="flex justify-between items-center mb-4">
               <span className="font-bold text-gray-900">
-                {product.category?.parent?.slug === 'perfumes' || product.category?.slug === 'perfumes' ? 'Selecciona tu tamaño' : 
-                 product.category?.parent?.slug === 'electronica' || product.category?.slug === 'electronica' ? 'Selecciona tu capacidad' : 
-                 'Selecciona tu talla'}
+                {t('selectSize')}
               </span>
               {activeVariant?.colorNormalized && (
                 <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
@@ -227,31 +226,30 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
               
               <div className="flex flex-col text-center w-full animate-fade-in">
                 <span className="text-sm font-bold px-4 py-1.5 bg-black text-white rounded-full mb-6 inline-block w-max mx-auto shadow-sm">
-                  🥇 MEJOR OFERTA
+                  🥇 {t('bestPrice').toUpperCase()}
                 </span>
                 
                 <div className="flex flex-col items-center justify-center mb-6">
                    <span className="font-black text-6xl md:text-7xl tracking-tight mb-2">{formatPrice(bestOffer.priceTotal ?? bestOffer.priceBase)}</span>
-                   <span className="text-base text-gray-800 font-bold bg-yellow-100 px-3 py-1 rounded-md">PRECIO FINAL (ENVÍO INCLUIDO)</span>
+                   <span className="text-base text-gray-800 font-bold bg-yellow-100 px-3 py-1 rounded-md">{t('totalPrice').toUpperCase()}</span>
                 </div>
 
                 <div className="bg-gray-50 rounded-xl p-4 w-full md:w-1/2 mx-auto mb-6 text-sm md:text-base border border-gray-200">
-                  <p className="font-bold text-gray-700 mb-2">Desglose:</p>
                   <div className="flex justify-between items-center text-gray-600 mb-1">
-                    <span>Producto:</span>
+                    <span>{t('basePrice')}:</span>
                     <span className="font-semibold">{formatPrice(bestOffer.priceBase)}</span>
                   </div>
                   <div className="flex justify-between items-center text-gray-600 border-b border-gray-200 pb-2 mb-2">
-                    <span>Envío:</span>
+                    <span>{t('shipping')}:</span>
                     <span className="font-semibold">
-                      {bestOffer.priceShipping === null ? 'Consultar' : formatPrice(bestOffer.priceShipping)}
+                      {bestOffer.priceShipping === null ? '—' : (bestOffer.priceShipping === 0 ? t('freeShipping') : formatPrice(bestOffer.priceShipping))}
                     </span>
                   </div>
                 </div>
 
                 {savingsDiff > 0 && (
                   <div className="mb-4 flex items-center justify-center gap-2 text-green-700 font-bold bg-green-50 px-4 py-2 rounded-lg w-max mx-auto border border-green-200">
-                    💡 Ahorras {formatPrice(savingsDiff)}
+                    💡 {t('savings', { amount: savingsDiff.toFixed(2) })}
                   </div>
                 )}
 
@@ -271,14 +269,14 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                   rel="noopener noreferrer"
                   className="bg-black text-white px-8 py-5 rounded-full font-black text-xl w-full md:w-2/3 text-center hover:bg-gray-800 transition-all hover:shadow-xl hover:scale-105 active:scale-95 flex justify-center items-center gap-3"
                 >
-                  IR A COMPRAR
+                  {t('goToStore').toUpperCase()}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
                 
                 <p className="text-xs text-gray-400 mt-2 text-center max-w-sm">
-                  Al hacer clic y comprar a través de nuestros enlaces, podemos recibir una pequeña comisión de afiliado sin coste adicional para ti. Mantenemos el ranking de ofertas estrictamente ordenado por precio.
+                  {t('disclaimer')}
                 </p>
               </div>
             </div>
