@@ -25,8 +25,9 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
   const [abVariant, setAbVariant] = useState<'A' | 'C'>('A');
 
   useEffect(() => {
+    console.log("VERSION NUEVA 123");
     console.log("=== SOLEFIND PRODUCT CLIENT AWIN SPRINT ===");
-    console.log("Versión con TODAS las offers, marca visible, CTA: COMPRAR AL MEJOR PRECIO y diccionario de colores.");
+    console.log("OFFERS COUNT:", offers.length);
     
     setClientSessionId(getSessionId());
     let stored = localStorage.getItem('abVariant') as 'A' | 'C';

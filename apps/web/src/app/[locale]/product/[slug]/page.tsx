@@ -4,6 +4,8 @@ import { prisma } from '@price-comparator/database/src/index';
 import { ProductClient } from './ProductClient';
 import { Metadata } from 'next';
 
+export const dynamic = "force-dynamic";
+
 async function getProductData(slug: string) {
   return prisma.product.findFirst({
     where: { slug },
