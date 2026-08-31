@@ -22,3 +22,4 @@ const nextConfig: NextConfig = {
 };
 
 export default withNextIntl(nextConfig);
+// Cache buster commit
