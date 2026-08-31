@@ -164,6 +164,13 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-8 md:py-16">
+      
+      <div style={{ background: 'red', color: 'white', padding: '1rem', marginBottom: '2rem', fontWeight: 'bold', fontSize: '1.5rem', textAlign: 'center' }}>
+        TEST DEPLOY REAL
+        <br />
+        Número de ofertas recibidas en este componente: {offers.length}
+      </div>
+
       {/* Upper Section */}
       <div className="bg-white rounded-[2rem] p-6 md:p-12 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 md:gap-16 mb-8">
         
