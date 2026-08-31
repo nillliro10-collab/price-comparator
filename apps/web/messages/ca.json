@@ -48,15 +48,15 @@
     "shipping": "Enviament",
     "freeShipping": "Enviament gratuït",
     "totalPrice": "Preu final",
-    "inStock": "En estoc",
-    "outOfStock": "Esgotat",
-    "goToStore": "Anar a la botiga",
     "disclaimer": "Els preus i la disponibilitat poden variar segons la botiga oficial.",
     "noProducts": "No hi ha productes per a mostrar amb aquests filtres.",
-    "buyBestPrice": "COMPRAR AL MILLOR PREU",
+    "buy_best_price": "COMPRAR AL MILLOR PREU",
     "buy": "COMPRAR",
-    "buyAnyStore": "Pots comprar en qualsevol d'aquestes botigues",
-    "badgeBest": "MILLOR OFERTA"
+    "buyAnyStore": "Pots comprar aquest producte en qualsevol d'aquestes botigues:",
+    "badgeBest": "MILLOR OFERTA",
+    "total_price": "Preu total",
+    "you_save": "Estalvies",
+    "shipping": "Enviament"
   },
   "banner": {
     "beta": "Estem en fase Beta.",

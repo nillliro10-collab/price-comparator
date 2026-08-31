@@ -36,7 +36,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
 
   const activeVariant = variants.find((v: any) => v.sizeValue === selectedSize);
   
-  const offers = [...(activeVariant?.offers || [])].filter((a: any) => a.status === 'ACTIVE').sort((a: any, b: any) => {
+  const offers = [...(activeVariant?.offers || [])].sort((a: any, b: any) => {
     if (a.stockStatus === 'OUT_OF_STOCK') return 1;
     if (b.stockStatus === 'OUT_OF_STOCK') return -1;
     const priceA = a.priceTotal ?? a.priceBase;
@@ -169,18 +169,10 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col justify-center">
-          {product.brand?.slug ? (
-            <Link href={`/${locale}/marca/${product.brand.slug}`} className="mb-4 block w-max">
-               <div className="text-3xl font-black tracking-tighter uppercase text-black">
-                 {product.brand?.name}
-               </div>
-            </Link>
-          ) : (
-            <div className="text-3xl font-black tracking-tighter uppercase text-black mb-4">
-               {product.brand?.name}
-            </div>
-          )}
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">{product.name}</h1>
+          <div className="mb-2 text-sm text-gray-500 uppercase tracking-wide">
+            {product.brand?.name || 'GENERIC BRAND'}
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight mb-4 leading-tight">{product.name}</h1>
           <div className="flex items-center gap-2 mb-8">
              <div className="flex text-black">★★★★★</div>
              <span className="text-sm text-gray-400 font-medium">(Valoración ficticia)</span>
@@ -191,11 +183,28 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
               <span className="font-bold text-gray-900">
                 {t('selectSize')}
               </span>
-              {activeVariant?.colorNormalized && (
-                <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
-                  Color: <span className="text-black font-bold">{activeVariant.colorNormalized}</span>
-                </span>
-              )}
+              {activeVariant?.colorNormalized && (() => {
+                const colors: Record<string, any> = {
+                  black: { es: "Negro", en: "Black", ca: "Negre" },
+                  white: { es: "Blanco", en: "White", ca: "Blanc" },
+                  red: { es: "Rojo", en: "Red", ca: "Vermell" },
+                  blue: { es: "Azul", en: "Blue", ca: "Blau" },
+                  green: { es: "Verde", en: "Green", ca: "Verd" },
+                  grey: { es: "Gris", en: "Grey", ca: "Gris" },
+                  yellow: { es: "Amarillo", en: "Yellow", ca: "Groc" },
+                  pink: { es: "Rosa", en: "Pink", ca: "Rosa" },
+                  purple: { es: "Morado", en: "Purple", ca: "Lila" },
+                  brown: { es: "Marrón", en: "Brown", ca: "Marró" },
+                  orange: { es: "Naranja", en: "Orange", ca: "Taronja" },
+                };
+                const colKey = activeVariant.colorNormalized.toLowerCase();
+                const displayColor = colors[colKey]?.[locale as string] || activeVariant.colorNormalized;
+                return (
+                  <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                    Color: <span className="text-black font-bold capitalize">{displayColor}</span>
+                  </span>
+                );
+              })()}
             </div>
             <div className="flex flex-wrap gap-2 md:gap-3">
               {sortedSizes.length > 0 ? sortedSizes.map(size => (
@@ -235,7 +244,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                 
                 <div className="flex flex-col items-center justify-center mb-6">
                    <span className="font-black text-6xl md:text-7xl tracking-tight mb-2">{formatPrice(bestOffer.priceTotal ?? bestOffer.priceBase)}</span>
-                   <span className="text-base text-gray-800 font-bold bg-yellow-100 px-3 py-1 rounded-md">{t('totalPrice').toUpperCase()}</span>
+                   <span className="text-base text-gray-800 font-bold bg-yellow-100 px-3 py-1 rounded-md">{t('total_price').toUpperCase()}</span>
                 </div>
 
                 <div className="bg-gray-50 rounded-xl p-4 w-full md:w-1/2 mx-auto mb-6 text-sm md:text-base border border-gray-200">
@@ -253,7 +262,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
 
                 {savingsDiff > 0 && (
                   <div className="mb-4 flex items-center justify-center gap-2 text-green-700 font-bold bg-green-50 px-4 py-2 rounded-lg w-max mx-auto border border-green-200">
-                    💡 {t('savings', { amount: savingsDiff.toFixed(2) })}
+                    💡 {t('you_save')} {formatPrice(savingsDiff)}
                   </div>
                 )}
 
@@ -273,7 +282,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                   rel="noopener noreferrer"
                   className="bg-emerald-600 text-white px-8 py-5 rounded-full font-black text-xl w-full md:w-2/3 text-center hover:bg-emerald-700 transition-all hover:shadow-xl hover:scale-105 active:scale-95 flex justify-center items-center gap-3"
                 >
-                  {t('buyBestPrice')}
+                  {t('buy_best_price')}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -293,8 +302,8 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
         )}
 
         {/* Comparison Table */}
-        <div className="text-center mb-4 mt-8">
-           <h2 className="text-2xl font-black mb-1">{t('buyAnyStore')}</h2>
+        <div className="mb-4 mt-8">
+           <p className="text-sm text-gray-600 mb-2">{t('buyAnyStore')}</p>
         </div>
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-12">
           <div className="overflow-x-auto">
@@ -304,7 +313,7 @@ export function ProductClient({ product, sessionId: serverSessionId }: { product
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs">Tienda</th>
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('basePrice')}</th>
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('shipping')}</th>
-                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('totalPrice')}</th>
+                  <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-right">{t('total_price')}</th>
                   <th className="px-6 py-4 font-bold text-gray-400 uppercase tracking-wider text-xs text-center">Estado</th>
                   <th className="px-6 py-4"></th>
                 </tr>

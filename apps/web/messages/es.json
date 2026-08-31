@@ -48,15 +48,15 @@
     "shipping": "Envío",
     "freeShipping": "Envío gratis",
     "totalPrice": "Precio final",
-    "inStock": "En stock",
-    "outOfStock": "Agotado",
-    "goToStore": "Ir a la tienda",
     "disclaimer": "Los precios y disponibilidad pueden variar según la tienda oficial.",
     "noProducts": "No hay productos para mostrar con estos filtros.",
-    "buyBestPrice": "COMPRAR AL MEJOR PRECIO",
+    "buy_best_price": "COMPRAR AL MEJOR PRECIO",
     "buy": "COMPRAR",
-    "buyAnyStore": "Puedes comprar en cualquiera de estas tiendas",
-    "badgeBest": "MEJOR OFERTA"
+    "buyAnyStore": "Puedes comprar este producto en cualquiera de estas tiendas:",
+    "badgeBest": "MEJOR OFERTA",
+    "total_price": "Precio total",
+    "you_save": "Ahorras",
+    "shipping": "Envío"
   },
   "banner": {
     "beta": "Estamos en fase Beta.",

@@ -13,7 +13,6 @@ async function getProductData(slug: string) {
       variants: {
         include: {
           offers: {
-            where: { store: { isActive: true } },
             include: { 
               store: true,
               priceHistory: { orderBy: { recordedAt: 'asc' } }
