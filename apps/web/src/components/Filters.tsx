@@ -3,6 +3,7 @@
 import Form from 'next/form';
 import Link from 'next/link';
 import { useRef } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 export function Filters({ 
   locale, 
@@ -38,14 +39,33 @@ export function Filters({
     genderOptions = ['Perro', 'Gato', 'Pez', 'Pájaro', 'Roedor', 'Gallina', 'Reptil'];
   }
 
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const handleChange = () => {
     if (formRef.current) {
-      formRef.current.requestSubmit();
+      const formData = new FormData(formRef.current);
+      const params = new URLSearchParams(searchParams.toString());
+      
+      const newBrand = formData.get('brand') as string;
+      const newSize = formData.get('size') as string;
+      const newGender = formData.get('gender') as string;
+      const newMaxPrice = formData.get('maxPrice') as string;
+      const newCatId = formData.get('categoryId') as string;
+
+      if (newBrand) params.set('brand', newBrand); else params.delete('brand');
+      if (newSize) params.set('size', newSize); else params.delete('size');
+      if (newGender) params.set('gender', newGender); else params.delete('gender');
+      if (newMaxPrice) params.set('maxPrice', newMaxPrice); else params.delete('maxPrice');
+      if (newCatId) params.set('categoryId', newCatId); else params.delete('categoryId');
+
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
     }
   };
 
   return (
-    <Form ref={formRef} action={`/${locale}`} scroll={false} className="flex flex-col gap-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm animate-fade-in">
+    <form ref={formRef} className="flex flex-col gap-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm animate-fade-in" onSubmit={(e) => { e.preventDefault(); handleChange(); }}>
       
       {/* Subcategories */}
       {subcats.length > 0 && (

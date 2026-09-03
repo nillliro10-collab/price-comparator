@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Comparator",
-  description: "Encuentra dónde comprarlo mejor.",
+  title: "SoleRadar",
+  description: "Comparador de precios inteligente especializado en zapatillas (sneakers) y moda urbana. Rastrea en tiempo real el stock de tiendas oficiales para encontrar tu talla al instante y siempre al precio más bajo.",
 };
 
 export default async function RootLayout({
