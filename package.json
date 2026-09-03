@@ -22,3 +22,5 @@
     "node-fetch": "^3.3.2"
   }
 }
+
+// force vercel build
